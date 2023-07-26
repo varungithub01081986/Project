@@ -1,0 +1,18 @@
+key: __KEY_PLACEHOLDER__
+log-format: text
+
+storage:
+    type: s3
+
+    # S3 storage settings
+    host: minio.${CLUSTER_DOMAIN}
+    bucket: datagateway
+    access-key: testingkey
+    secret-key: testingsecret
+
+docker:
+    registry:
+        # username: <Docker Registry username>
+        # password: <Docker Registry password>
+        server-address: registry.${CLUSTER_DOMAIN}
+        image-prefix: /

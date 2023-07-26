@@ -1,0 +1,18 @@
+clusterDomain: ${CLUSTER_DOMAIN}
+superUsers: navi:navi
+provisioning:
+  enabled: true
+  topics:
+  - name: navi-status
+  - name: navi-task
+  - name: navi-cancel
+  - name: __consumer_offsets
+  - name: pro-api-permissions
+  - name: pro-api-import-tasks
+config: |-
+  advertised.listeners=INTERNAL://:9093,CLIENT://:9092
+  zookeeper.connect=on-prem-kafka-zookeeper
+  zookeeper.protocol=PLAINTEXT
+  listeners=INTERNAL://:9093,CLIENT://:9092
+  listener.security.protocol.map=INTERNAL:PLAINTEXT,CLIENT:PLAINTEXT
+  inter.broker.listener.name=INTERNAL

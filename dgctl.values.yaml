@@ -1,0 +1,7 @@
+dgctlDockerRegistry: registry.${CLUSTER_DOMAIN}
+dgctlStorage:
+  manifest: manifests/${manifest}
+  host: on-prem-minio.default.svc:9000
+  bucket: datagateway
+  accessKey: testingkey
+  secretKey: testingsecret

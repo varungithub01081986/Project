@@ -1,0 +1,19 @@
+#!/bin/bash
+set -e
+set -o pipefail
+set -u
+tokens=$(kubectl exec deployment/on-prem-keys-api -- keysctl services)
+export token_catalog=$(awk -F': ' '/Catalog/ {print $2 }' <<<$tokens)
+export token_categories=$(awk -F': ' '/Categories/ {print $2 }' <<<$tokens)
+export token_directions=$(awk -F': ' '/Directions/ {print $2 }' <<<$tokens)
+export token_distance_matrix=$(awk -F': ' '/Distance Matrix/ {print $2 }' <<<$tokens)
+export token_geocoder=$(awk -F': ' '/Geocoder/ {print $2 }' <<<$tokens)
+export token_isochrone=$(awk -F': ' '/Isochrone/ {print $2 }' <<<$tokens)
+export token_mapgl=$(awk -F': ' '/MapGL/ {print $2 }' <<<$tokens)
+export token_markers=$(awk -F': ' '/Markers/ {print $2 }' <<<$tokens)
+export token_places=$(awk -F': ' '/Places/ {print $2 }' <<<$tokens)
+export token_pro=$(awk -F': ' '/Pro/ {print $2 }' <<<$tokens)
+export token_public_transport=$(awk -F': ' '/Public Transport/ {print $2 }' <<<$tokens)
+export token_regions=$(awk -F': ' '/Regions/ {print $2 }' <<<$tokens)
+export token_suggest=$(awk -F': ' '/Suggest/ {print $2 }' <<<$tokens)
+export token_tiles=$(awk -F': ' '/Tiles/ {print $2 }' <<<$tokens)

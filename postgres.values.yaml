@@ -1,0 +1,18 @@
+auth:
+  username: user
+  password: user
+  database: datagateway
+
+primary:
+  podSecurityContext:
+    enabled: false
+  containerSecurityContext:
+    enabled: true
+    runAsUser: 0
+
+readReplicas:
+  podSecurityContext:
+    enabled: false
+  containerSecurityContext:
+    enabled: true
+    runAsUser: 0

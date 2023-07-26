@@ -1,0 +1,45 @@
+rootUser: "root"
+rootPassword: "local123"
+
+resources:
+  requests:
+    memory: 1Gi
+
+mode: standalone
+
+users:
+  - accessKey: testingkey
+    secretKey: testingsecret
+    policy: consoleAdmin
+
+buckets:
+  - name: datagateway
+    policy: public
+    purge: true
+  - name: naviback
+    policy: public
+    purge: true
+  - name: naviasyncmatrix
+    policy: public
+    purge: true
+  - name: spstatic
+    policy: public
+    purge: true
+  - name: spsession
+    policy: public
+    purge: true
+
+ingress:
+  enabled: true
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: 1024m
+  hosts:
+    - minio.${CLUSTER_DOMAIN}
+
+consoleIngress:
+  enabled: true
+  hosts:
+    - minio-console.${CLUSTER_DOMAIN}
+
+securityContext:
+  enabled: false

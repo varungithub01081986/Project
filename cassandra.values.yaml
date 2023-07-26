@@ -1,0 +1,26 @@
+dbUser:
+  user: cassandra
+  password: cassandra
+
+podSecurityContext:
+  enabled: false
+
+containerSecurityContext:
+  enabled: true
+  runAsUser: 0
+  runAsNonRoot: false
+
+service:
+  extraPorts:
+    - name: jmx
+      port: 7199
+      nodePort: null
+
+jvm:
+  extraOpts: '-Dcom.sun.management.jmxremote.authenticate=false'
+
+extraEnvVars:
+  - name: LOCAL_JMX
+    value: 'no'
+persistence:
+  size: 20Gi

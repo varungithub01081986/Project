@@ -1,0 +1,18 @@
+ingress:
+  enabled: true
+  hosts:
+    - registry.${CLUSTER_DOMAIN}
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: 1024m
+  tls:
+    - secretName: on-prem-registry
+      hosts:
+        - registry.${CLUSTER_DOMAIN}
+
+persistence:
+  enabled: true
+  accessMode: ReadWriteOnce
+  size: 20Gi
+
+securityContext:
+  enabled: false
