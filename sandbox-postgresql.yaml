@@ -64,6 +64,6 @@ spec:
           - name: on-prem-sandbox-postgresql
             mountPath: /data/pgdata
       volumes:
-      - name: on-prem-sandbox-postgresql
+      - name: s
         persistentVolumeClaim:
           claimName: on-prem-sandbox-postgresql

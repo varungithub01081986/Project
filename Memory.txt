@@ -1,0 +1,1 @@
+grep -i -r 'out of memory' /var/log/
